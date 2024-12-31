@@ -159,6 +159,14 @@ void Logic() {
     }
 }
 
+void GameOver() {
+    system("cls");
+    cout << "Game Over!" << endl;
+    cout << "Final Score: " << score << endl;
+    cout << "Press any key to exit...";
+    _getch();
+}
+
 int main() {
     Setup();
     while (!gameOver) {
