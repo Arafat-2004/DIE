@@ -142,6 +142,22 @@ void Logic() {
  // Check if fruit is eaten
     if (x == fruitX && y == fruitY) {
         score += 10;
+        
+// Ensure fruit doesn't spawn on the snake's body
+        do {
+            fruitX = rand() % width;
+            fruitY = rand() % height;
+        } while ([&]() {
+            for (int i = 0; i < nTail; i++) {
+                if (fruitX == tailX[i] && fruitY == tailY[i])
+                    return true;
+            }
+            return false;
+        }());
+
+        nTail++;
+    }
+}
 
 int main() {
     Setup();
