@@ -13,6 +13,7 @@ int tailX[100], tailY[100];
 int nTail;
 enum eDirection { STOP = 0, LEFT, RIGHT, UP, DOWN };
 eDirection dir;
+bool paused = false;
 
 void Setup() {
     gameOver = false;
