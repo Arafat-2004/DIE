@@ -74,16 +74,19 @@ void Input() {
     if (_kbhit()) {
         switch (_getch()) {
         case 'a':
-            dir = LEFT;
+            if (dir != RIGHT) dir = LEFT;
             break;
         case 'd':
-            dir = RIGHT;
+            if (dir != LEFT) dir = RIGHT;
             break;
         case 'w':
-            dir = UP;
+            if (dir != DOWN) dir = UP;
             break;
         case 's':
-            dir = DOWN;
+            if (dir != UP) dir = DOWN;
+            break;
+        case 'p':
+            paused = !paused;
             break;
         case 'x':
             gameOver = true;
@@ -91,6 +94,7 @@ void Input() {
         }
     }
 }
+
 
 void Logic() {
     int prevX = tailX[0];
