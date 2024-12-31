@@ -133,21 +133,15 @@ void Logic() {
     if (x >= width) x = 0; else if (x < 0) x = width - 1;
     if (y >= height) y = 0; else if (y < 0) y = height - 1;
     
-
     // Check collision with tail
     for (int i = 0; i < nTail; i++) {
         if (tailX[i] == x && tailY[i] == y)
             gameOver = true;
     }
 
-    // Check if fruit is eaten
+ // Check if fruit is eaten
     if (x == fruitX && y == fruitY) {
         score += 10;
-        fruitX = rand() % width;
-        fruitY = rand() % height;
-        nTail++;
-    }
-}
 
 int main() {
     Setup();
