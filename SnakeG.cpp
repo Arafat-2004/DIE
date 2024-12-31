@@ -129,10 +129,10 @@ void Logic() {
     default:
         break;
     }
-
-    // Check collision with walls
-    if (x >= width || x < 0 || y >= height || y < 0)
-        gameOver = true;
+// Wrap around the screen edges
+    if (x >= width) x = 0; else if (x < 0) x = width - 1;
+    if (y >= height) y = 0; else if (y < 0) y = height - 1;
+    
 
     // Check collision with tail
     for (int i = 0; i < nTail; i++) {
